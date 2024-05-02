@@ -23,8 +23,8 @@
       q       			= "exit";
       ":q"    			= "exit";
       switch  			= "sudo nixos-rebuild switch --flake ~/.nixos#h0s7 && home-manager switch --flake ~/.nixos#st34x@h0s7";
-      conf   			= "cd /home/st34x/.nixos && nvim /home/st34x/.nixos/modules/home-manager/default.nix";
-      pkgs    			= "nvim /home/st34x/.nixos/ni "cd ~/.nixos && nxos/packages.nix";
+      conf   			= "cd ~/.nixos && nvim ~/.nixos/modules/home-manager/default.nix";
+      pkgs    			= "nvim ~/.nixos/nixos/packages.nix";
       v       			= "nvim";
       ".."    			= "cd ..";
       "~"     			= "cd ~";
