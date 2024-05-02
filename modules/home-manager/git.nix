@@ -25,11 +25,19 @@
       # the `personal` identity
       user.personal.name = "St34x";
       user.personal.email = "mykola.vradnyk@ecole2600.com";
+
+      # Git cred helper
+      credential.helper = "${
+          pkgs.git.override { withLibsecret = true; }
+        }/bin/git-credential-libsecret";
     };
 
     aliases = {
       identity = "! git-identity";
       id = "! git-identity";
+      ci = "commit -m";
+      co = "checkout";
+      s = "status";
     };
 
   };
