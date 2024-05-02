@@ -4,8 +4,8 @@
     enable = true;
 
     iconTheme = {
-      name = "Candy-icons";
-      package = pkgs.candy-icons;
+      name = "BeatyLine";
+      package = pkgs.beauty-line-icon-theme;
     };
 
     cursorTheme = {
@@ -14,8 +14,8 @@
     };
 
     theme = {
-      name = "Materia-dark";
-      package = pkgs.materia-theme;
+      name = "Tokyonight-Dark-B-LB";
+      package = pkgs.tokyo-night-gtk;
     };
 
     gtk3.extraConfig = {
