@@ -1,5 +1,3 @@
-# This is your home-manager configuration file
-# Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
   outputs,
@@ -31,7 +29,6 @@
     outputs.homeManagerModules.nixvim
     outputs.homeManagerModules.gtk-theme
     outputs.homeManagerModules.git
-    outputs.homeManagerModules.nix-helper
 
     # You can also split up your configuration and import pieces of it here:
     # ./alacritty.nix
