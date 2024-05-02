@@ -60,7 +60,7 @@
 
   # Nix-colors
   # colorScheme = inputs.nix-colors.colorSchemes.black-metal-mayhem;
-  colorScheme = inputs.nix-colors.colorSchemes.ayu-mirage;
+  colorScheme = inputs.nix-colors.colorSchemes.tokyo-night-storm;
 
   # Set your username
   home = {

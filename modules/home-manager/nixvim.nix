@@ -16,7 +16,7 @@
 
         colorschemes.base16 = {
 	  enable 		= true;
-	  colorscheme 		= "ayu-mirage";
+	  colorscheme 		= "tokyo-night-storm";
 	};
 
 	plugins = {
