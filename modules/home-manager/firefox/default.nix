@@ -9,7 +9,7 @@
       colors = with config.colorScheme.palette;{
 	bg 				= "#${base00}";
 	icon-color 			= "#${base06}";
-	sidebar-bg 			= bg;
+	sidebar-bg 			= "#${base00}";
 	sidebar-color 			= "#${base06}";
 	tab-color 			= "#${base02}";
 	tab-pinned-bg 			= "#${base03}";
