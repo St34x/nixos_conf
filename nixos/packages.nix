@@ -12,6 +12,7 @@
     firefox
     thunderbird
     discord
+    libreoffice-still
     
     # CLI
     wget
