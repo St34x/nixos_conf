@@ -4,18 +4,18 @@
     enable = true;
 
     iconTheme = {
-      name = "BeatyLine";
-      package = pkgs.beauty-line-icon-theme;
+      name 		= "BeatyLine";
+      package 		= pkgs.beauty-line-icon-theme;
     };
 
     cursorTheme = {
-      name = "Bibata-Modern-Ice";
-      package = pkgs.bibata-cursors;
+      name 		= "Bibata-Modern-Ice";
+      package 		= pkgs.bibata-cursors;
     };
 
     theme = {
-      name = "Tokyonight-Dark-B-LB";
-      package = pkgs.tokyo-night-gtk;
+      name 		= "Tokyonight-Dark-B-LB";
+      package 		= pkgs.tokyo-night-gtk;
     };
 
     gtk3.extraConfig = {

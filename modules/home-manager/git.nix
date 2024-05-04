@@ -12,19 +12,19 @@
   ];
 
   programs.git = {
-    enable 		= true;
-    extraConfig 	= {
-      init.defaultBranch = "main";
+    enable 			= true;
+    extraConfig = {
+      init.defaultBranch 	= "main";
       # extremely important, otherwise git will attempt to guess a default user identity. see `man git-config` for more details
-      user.useConfigOnly = true;
+      user.useConfigOnly 	= true;
 
       # the `work` identity
-      user.school.name = "Mykola Vradnyk";
-      user.school.email = "mykola.vradnyk@ecole2600.com";
+      user.school.name 		= "Mykola Vradnyk";
+      user.school.email 	= "mykola.vradnyk@ecole2600.com";
 
       # the `personal` identity
-      user.personal.name = "St34x";
-      user.personal.email = "mykola.vradnyk@ecole2600.com";
+      user.personal.name 	= "St34x";
+      user.personal.email 	= "mykola.vradnyk@ecole2600.com";
 
       # Git cred helper
       credential.helper = "${
@@ -33,11 +33,11 @@
     };
 
     aliases = {
-      identity = "! git-identity";
-      id = "! git-identity";
-      ci = "commit -m";
-      co = "checkout";
-      s = "status";
+      identity 			= "! git-identity";
+      id 			= "! git-identity";
+      ci 			= "commit -m";
+      co 			= "checkout";
+      s 			= "status";
     };
 
   };

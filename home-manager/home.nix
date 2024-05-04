@@ -25,11 +25,12 @@
     #################
 
     # Config from modules/
-    outputs.homeManagerModules.alacritty
+    outputs.homeManagerModules.git
     outputs.homeManagerModules.zsh
     outputs.homeManagerModules.nixvim
+    outputs.homeManagerModules.firefox
     outputs.homeManagerModules.gtk-theme
-    outputs.homeManagerModules.git
+    outputs.homeManagerModules.alacritty
 
     # You can also split up your configuration and import pieces of it here:
     # ./alacritty.nix
@@ -55,7 +56,7 @@
     # Configure your nixpkgs instance
     config = {
       # Disable if you don't want unfree packages
-      allowUnfree = true;
+      allowUnfree 				= true;
     };
   };
 
@@ -74,12 +75,12 @@
   # home.packages = with pkgs; [ steam ];
 
   # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git.enable = true;
+  programs.home-manager.enable 			= true;
+  programs.git.enable 				= true;
 
   # Nicely reload system units when changing configs
-  systemd.user.startServices = "sd-switch";
+  systemd.user.startServices 			= "sd-switch";
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "23.05";
+  home.stateVersion 				= "23.05";
 }
