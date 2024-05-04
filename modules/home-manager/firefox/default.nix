@@ -6,7 +6,7 @@
     firefox = {
       enable 				= true;
       policies 				= import ./firefox-policies.nix;
-      extraConfig = with config.colorScheme.palette = {
+      extraConfig = with config.colorScheme.palette; {
 	bg 				= "#${base00}";
 	icon-color 			= "#${base06}";
 	sidebar-bg 			= "#${base00}";
