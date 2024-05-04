@@ -1,4 +1,4 @@
-{ config, ... }: 
+{ pkgs, config, ... }: 
   let
     colors = with config.colorScheme.palette; {
       bg 				= "#${base00}";
@@ -15,13 +15,15 @@
       urlbar-results-url-color 		= "#${base06}";
     };
   in {
-''
-  @import url("userChrome.css");
-  /* Removes white loading page */
-  @-moz-document url(about:blank), url(about:newtab), url(about:home) {
-      html:not(#ublock0-epicker), html:not(#ublock0-epicker) body, #newtab-customize-overlay {
-	background: ${bg} !important;
-      }
-    }
-''
+    programs.firefox = {
+	userContent = ''
+	  @import url("userChrome.css");
+	  /* Removes white loading page */
+	  @-moz-document url(about:blank), url(about:newtab), url(about:home) {
+	      html:not(#ublock0-epicker), html:not(#ublock0-epicker) body, #newtab-customize-overlay {
+		background: ${colors.bg} !important;
+	      }
+	    }
+	'';
+  };
 }

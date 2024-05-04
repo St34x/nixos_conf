@@ -16,7 +16,7 @@
     };
   in {
     programs.firefox = {
-      user.Chrome = ''
+      userChrome = ''
 	--tab-font-family: "JetBrainsMono NF", serif;
 	--tab-font-size: 9.5pt;
 	--tab-font-weight: 600;
