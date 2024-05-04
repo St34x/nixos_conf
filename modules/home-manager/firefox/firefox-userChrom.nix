@@ -1,4 +1,4 @@
-{ config, ... }: 
+{ pkgs, config, ... }: 
   let
     colors = with config.colorScheme.palette; {
       bg 				= "#${base00}";
@@ -15,7 +15,8 @@
       urlbar-results-url-color 		= "#${base06}";
     };
   in {
-      ''
+    programs.firefox = {
+      user.Chrome = ''
 	--tab-font-family: "JetBrainsMono NF", serif;
 	--tab-font-size: 9.5pt;
 	--tab-font-weight: 600;
@@ -423,4 +424,6 @@
 	  color:${colors.icon-color} !important;
 	  background:${colors.tab-selected-bg} !important;
 	}
-      ''
+      '';
+    };
+}
