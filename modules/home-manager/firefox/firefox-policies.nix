@@ -1,6 +1,6 @@
 {
   DisableFirefoxAccounts	= true;
-  DisableFirefoxScreenshots 	= true;.
+  DisableFirefoxScreenshots 	= true;
   DisableFirefoxStudies 	= true;
   DisableFormHistory 		= true;
   DisablePocket 		= true;
@@ -17,4 +17,5 @@
     Locked 			= true;
     Cryptomining 		= true;
     Fingerprinting 		= true;
+  };
 }

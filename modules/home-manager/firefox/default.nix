@@ -6,8 +6,11 @@
     firefox = {
       enable 				= true;
       policies 				= import ./firefox-policies.nix;
-      userChrome 			= import ./firefox-userChrome.nix;
-      userContent 			= import ./firefox-userContent.nix;
     };
   };
+
+  imports = [
+    ./firefox-userChrome.nix
+    ./firefox-userContent.nix
+  ];
 }

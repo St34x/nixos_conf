@@ -9,7 +9,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Desctop apps
-    firefox
     thunderbird
     discord
     libreoffice-still
