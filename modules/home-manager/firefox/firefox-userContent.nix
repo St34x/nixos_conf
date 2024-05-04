@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, userConfig, ... }: 
   let
     colors = with config.colorScheme.palette; {
       bg 				= "#${base00}";
@@ -16,7 +16,7 @@
     };
   in {
     programs.firefox = {
-	profiles.St34x.userContent = ''
+	profiles.${userConfig.userName}.userContent = ''
 	  @import url("userChrome.css");
 	  /* Removes white loading page */
 	  @-moz-document url(about:blank), url(about:newtab), url(about:home) {

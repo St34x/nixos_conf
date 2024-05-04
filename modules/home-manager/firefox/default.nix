@@ -4,8 +4,8 @@
  # FireFox program settings
   programs = {
     firefox = {
-      enable 				= true;
-      policies 				= import ./firefox-policies.nix;
+      enable 		= true;
+      policies 		= import ./firefox-policies.nix;
     };
   };
 

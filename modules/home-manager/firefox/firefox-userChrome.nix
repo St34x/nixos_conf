@@ -1,4 +1,4 @@
-{ pkgs, config, ... }: 
+{ pkgs, config, userConfig, ... }: 
   let
     colors = with config.colorScheme.palette; {
       bg 				= "#${base00}";
@@ -17,7 +17,7 @@
   in {
     programs = {
       firefox = {
-	profiles.St34x.userChrome = ''
+	profiles.${userConfig.userName}.userChrome = ''
 	  --tab-font-family: "JetBrainsMono NF", serif;
 	  --tab-font-size: 9.5pt;
 	  --tab-font-weight: 600;
