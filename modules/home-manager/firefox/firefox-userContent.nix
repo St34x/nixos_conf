@@ -1,5 +1,4 @@
-{colors, ... }:
-with colors; ''
+''
   @import url("userChrome.css");
   /* Removes white loading page */
   @-moz-document url(about:blank), url(about:newtab), url(about:home) {
