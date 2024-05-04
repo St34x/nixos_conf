@@ -8,12 +8,16 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    # Desctop apps
     firefox
     thunderbird
+    discord
     
     # CLI
     wget
     wl-clipboard
+    bintools
+    toybox
 
     # Containerization
     docker
@@ -24,6 +28,16 @@
     # Gnome tools
     gnomeExtensions.zen
     gnome.gnome-tweaks
+
+    # School
+    criterion # Unit tests in C/C++
+    gnumake
+    libgccjit
+    virt-manager
+    # kvmtool
+    qemu_full
+    libvirt
+    virtiofsd
 
   ];
   

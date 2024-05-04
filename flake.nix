@@ -21,7 +21,11 @@
 
     # Nixvim
     nixvim.url = "github:nix-community/nixvim";
-    
+
+    # Nix-locate
+    nix-index-database.url = "github:nix-community/nix-index-database";
+    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";    
+
   };
 
   outputs = {
@@ -29,8 +33,32 @@
     nixpkgs,
     nixpkgs-unstable,
     home-manager,
+    nix-index-database,
     ...
   } @ inputs: let
+    
+    ####------ System variables ------####
+    systemConfig = {
+      system = "x86_64-linux";
+      hostName = "h0s7";
+      timezone = "Europe/Paris";
+      locale = "en_US.UTF-8";
+      systemVersion = "23.11";
+      kernelParams = [
+	"quiet"
+	"splash"
+	"apm=power_off"
+	"acpi=force"
+      ];
+    };
+
+    ####------ User variables ------####
+    userConfig = rec {
+      userName = "st34x";
+      userHome = "/home/" + userName;
+      userShell = "/run/current-system/sw/bin/zsh";
+    };
+
     inherit (self) outputs;
     # Supported systems for your flake packages, shell, etc.
     systems = [
@@ -59,8 +87,10 @@
     # NixOS configuration entrypoint
     # Available through 'nixos-rebuild --flake .#your-hostname'
     nixosConfigurations = {
-      h0s7 = nixpkgs-unstable.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+      ${systemConfig.hostName} = nixpkgs-unstable.lib.nixosSystem {
+        specialArgs = {
+	  inherit inputs outputs systemConfig userConfig;
+	};
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
@@ -70,12 +100,16 @@
 
     # Standalone home-manager configuration entrypoint
     homeConfigurations = {
-      "st34x@h0s7" = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs-unstable.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+      "${userConfig.userName}@${systemConfig.hostName}" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs-unstable.legacyPackages.${systemConfig.system}; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {
+	  inherit inputs outputs userConfig systemConfig;
+	};
         modules = [
-          # > Our main home-manager configuration file <
+          # > Main home-manager configuration file <
           ./home-manager/home.nix
+
+	  nix-index-database.hmModules.nix-index
         ];
       };
     };

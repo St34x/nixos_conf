@@ -2,9 +2,17 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ 
+  config,
+  pkgs,
+  systemConfig, 
+  userConfig,
+  ...
+}:
 
 {
+  # Kernel parameters
+  boot.kernelParams = systemConfig.kernelParams;
   imports =
     [ 
       # Include the results of the hardware scan.
@@ -15,21 +23,14 @@
       
       # Packages
       ./packages.nix
+
     ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-
-  # Kernel parameters
-  boot.kernelParams = [
-    "quiet"
-    "splash"
-    "apm=power_off"
-    "acpi=force"
-  ];
-
-  networking.hostName = "h0s7"; # Define your hostname.
+  
+  networking.hostName = systemConfig.hostName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -40,10 +41,10 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Paris";
+  time.timeZone = systemConfig.timezone;
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = systemConfig.locale;
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "fr_FR.UTF-8";
@@ -102,7 +103,7 @@
     defaultUserShell = pkgs.zsh;# Define a user account. Don't forget to set a password with ‘passwd’.
       users.st34x = {
         isNormalUser = true;
-        description = "st34x";
+        description = userConfig.userName;
         extraGroups = [ "networkmanager" "wheel" ];
         packages = with pkgs; [
       
@@ -113,6 +114,11 @@
   # Enabling flakes
   nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
 
+  # Virtlib config
+  virtualisation.libvirtd = {
+    enable = true;
+    qemu.ovmf.enable = true;
+  };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
@@ -138,6 +144,6 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "23.11"; # Did you read the comment?
+  system.stateVersion = systemConfig.systemVersion; # Did you read the comment?
 
 }
