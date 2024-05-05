@@ -9,6 +9,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Desctop apps
+    firefox
     thunderbird
     discord
     libreoffice-still
@@ -29,12 +30,8 @@
     gnomeExtensions.zen
     gnome.gnome-tweaks
 
-    # School
-    criterion # Unit tests in C/C++
-    gnumake
-    libgccjit
+    # Virtualiwation
     virt-manager
-    # kvmtool
     qemu_full
     libvirt
     virtiofsd

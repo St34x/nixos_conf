@@ -24,13 +24,19 @@
       # Packages
       ./packages.nix
 
+      # Docker settings
+      ./docker.nix
+
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader = {
+    systemd-boot.enable 			= true;
+    efi.canTouchEfiVariables			= true;
+  };
   
-  networking.hostName = systemConfig.hostName; # Define your hostname.
+  networking = {
+    hostName 					= systemConfig.hostName; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -38,53 +44,61 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+    networkmanager.enable	 		= true;
+  };
 
   # Set your time zone.
-  time.timeZone = systemConfig.timezone;
-
+  time.timeZone 				= systemConfig.timezone;
+  
   # Select internationalisation properties.
-  i18n.defaultLocale = systemConfig.locale;
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "fr_FR.UTF-8";
-    LC_IDENTIFICATION = "fr_FR.UTF-8";
-    LC_MEASUREMENT = "fr_FR.UTF-8";
-    LC_MONETARY = "fr_FR.UTF-8";
-    LC_NAME = "fr_FR.UTF-8";
-    LC_NUMERIC = "fr_FR.UTF-8";
-    LC_PAPER = "fr_FR.UTF-8";
-    LC_TELEPHONE = "fr_FR.UTF-8";
-    LC_TIME = "fr_FR.UTF-8";
-  };
-
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    xkb = {
-      layout = "us";
-      variant = "";
+  i18n = {
+    defaultLocale 				= systemConfig.locale;
+    extraLocaleSettings = {
+      LC_ADDRESS 				= "fr_FR.UTF-8";
+      LC_IDENTIFICATION 			= "fr_FR.UTF-8";
+      LC_MEASUREMENT 				= "fr_FR.UTF-8";
+      LC_MONETARY 				= "fr_FR.UTF-8";
+      LC_NAME 					= "fr_FR.UTF-8";
+      LC_NUMERIC 				= "fr_FR.UTF-8";
+      LC_PAPER 					= "fr_FR.UTF-8";
+      LC_TELEPHONE	 			= "fr_FR.UTF-8";
+      LC_TIME	 				= "fr_FR.UTF-8";
     };
   };
+  # Enable the X11 windowing system.
+  services = {
+    xserver = {
+      enable 					= true;
+      # Enable the GNOME Display Manager.
+      displayManager = { 	
+	gdm.enable 				= true;
+      };
+      desktopManager = {
+	# Enable the GNOME Desktop Environment.
+	gnome.enable 				= true;
+	xterm.enable 				= false;
+      };
+      # Configure keymap in X11
+      xkb = {
+	layout 					= "us";
+	variant 					= "";
+      };
+    };
+    # Enable CUPS to print documents.
+    printing.enable 			= true;
+  };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
+
 
   # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
+  sound.enable 					= true;
+  hardware.pulseaudio.enable 			= false;
+  security.rtkit.enable 			= true;
   services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
+    enable 					= true;
+    alsa.enable 				= true;
+    alsa.support32Bit 				= true;
+    pulse.enable 				= true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
 
@@ -96,25 +110,25 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
   
-  environment.shells = with pkgs; [ zsh ];
-  programs.zsh.enable = true;
+  environment.shells 				= with pkgs; [ zsh ];
+  programs.zsh.enable 				= true;
   
   users = {
-    defaultUserShell = pkgs.zsh;# Define a user account. Don't forget to set a password with ‘passwd’.
+    defaultUserShell 				= pkgs.zsh;# Define a user account. Don't forget to set a password with ‘passwd’.
       users.${userConfig.userName} = {
-        isNormalUser = true;
-        description = userConfig.userName;
-        extraGroups = [ "networkmanager" "wheel" ];
+        isNormalUser 				= true;
+        description 				= userConfig.userName;
+        extraGroups 				= [ "networkmanager" "wheel" "docker" ];
      };
    };
 
   # Enabling flakes
-  nix.settings.experimental-features = [ "nix-command" "flakes" ]; 
+  nix.settings.experimental-features 		= [ "nix-command" "flakes" ]; 
 
   # Virtlib config
   virtualisation.libvirtd = {
-    enable = true;
-    qemu.ovmf.enable = true;
+    enable 					= true;
+    qemu.ovmf.enable 				= true;
   };
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -141,6 +155,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = systemConfig.systemVersion; # Did you read the comment?
-
+  system.stateVersion 				= systemConfig.systemVersion;
 }
