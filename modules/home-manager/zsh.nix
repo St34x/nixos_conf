@@ -22,7 +22,8 @@
       grep    			= "grep --color=auto";
       q       			= "exit";
       ":q"    			= "exit";
-      switch  			= "sudo nixos-rebuild switch --flake ~/.nixos#h0s7 && home-manager switch --flake ~/.nixos#st34x@h0s7";
+      switch  			= "sudo nixos-rebuild switch --flake ~/.nixos#h0s7";
+      hm 	 		= "home-manager switch --flake ~/.nixos#st34x@h0s7";
       conf   			= "cd ~/.nixos && nvim ~/.nixos/modules/home-manager/default.nix";
       pkgs    			= "nvim ~/.nixos/nixos/packages.nix";
       v       			= "nvim";

@@ -9,7 +9,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Desctop apps
-    firefox
+    protonmail-bridge
     thunderbird
     discord
     libreoffice-still
@@ -17,6 +17,7 @@
     # CLI
     wget
     wl-clipboard
+    xclip
     bintools
     toybox
 
