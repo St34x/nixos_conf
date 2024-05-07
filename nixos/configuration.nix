@@ -86,9 +86,6 @@
     };
     # Enable CUPS to print documents.
     printing.enable 			= true;
-    gnome ={
-      core-utilities.enable = false;
-    };
   };
 
 
