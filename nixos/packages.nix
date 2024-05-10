@@ -9,6 +9,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Desctop apps
+    firefox
     protonmail-bridge
     thunderbird
     discord
