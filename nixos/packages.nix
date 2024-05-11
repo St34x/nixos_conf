@@ -38,7 +38,10 @@
     libvirt
     virtiofsd
 
-  ];
+    # Development
+    conda
+
+   ];
   
   fonts.packages = with pkgs; [
     jetbrains-mono

@@ -31,6 +31,7 @@
       "~"     			= "cd ~";
       "off"   			= "shutdown now";
       mkdir   			= "mkdir -p"; 
+      docker-clean		= "docker rm $(docker ps -aq) && docker rmi $(docker images -q)";
     };
   };
 }
