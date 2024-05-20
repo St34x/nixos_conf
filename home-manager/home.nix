@@ -32,8 +32,6 @@
     outputs.homeManagerModules.gtk-theme
     outputs.homeManagerModules.alacritty
 
-    # You can also split up your configuration and import pieces of it here:
-    # ./alacritty.nix
   ];
 
   nixpkgs = {
