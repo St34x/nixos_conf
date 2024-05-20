@@ -25,7 +25,9 @@
     # Nix-locate
     nix-index-database.url = "github:nix-community/nix-index-database";
     nix-index-database.inputs.nixpkgs.follows = "nixpkgs";    
-
+    
+    # Stylix
+    stylix.url = "github:danth/stylix";
   };
 
   outputs = {
@@ -34,6 +36,7 @@
     nixpkgs-unstable,
     home-manager,
     nix-index-database,
+    stylix,
     ...
   } @ inputs: let
     
@@ -94,6 +97,7 @@
         modules = [
           # > Our main nixos configuration file <
           ./nixos/configuration.nix
+	  stylix.nixosModules.stylix
         ];
       };
     };

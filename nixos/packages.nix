@@ -14,6 +14,7 @@
     thunderbird
     discord
     libreoffice-still
+    obsidian
     
     # CLI
     wget
@@ -51,7 +52,7 @@
     font-awesome
     powerline-fonts
     powerline-symbols
-    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" ]; })
+    (nerdfonts.override { fonts = [ "NerdFontsSymbolsOnly" "JetBrainsMono"]; })
   ];
 
   environment.gnome.excludePackages = (with pkgs; [

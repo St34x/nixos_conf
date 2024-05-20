@@ -27,6 +27,9 @@
       # Docker settings
       ./docker.nix
 
+      # Stylix
+      ./stylix.nix
+
     ];
 
   # Bootloader.
