@@ -22,6 +22,8 @@
     xclip
     bintools
     toybox
+    unzip
+    p7zip
 
     # Containerization
     docker
@@ -35,6 +37,7 @@
     gnome.dconf-editor
 
     # Virtualiwation
+    virtualbox
     virt-manager
     qemu_full
     libvirt

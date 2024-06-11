@@ -30,6 +30,9 @@
       # Stylix
       ./stylix.nix
 
+      # VirtualBox
+      ./virtualbox.nix
+
     ];
 
   # Bootloader.
