@@ -30,8 +30,12 @@
       # Stylix
       ./stylix.nix
 
+      # Virtualizatuion
+      ./virtualization/default.nix
       # VirtualBox
-      ./virtualbox.nix
+      ./virtualization/virtualbox.nix
+      # QEMU
+      ./virtualization/qemu.nix
 
     ];
 
@@ -124,7 +128,7 @@
       users.${userConfig.userName} = {
         isNormalUser 				= true;
         description 				= userConfig.userName;
-        extraGroups 				= [ "networkmanager" "wheel" "docker" ];
+        extraGroups 				= [ "networkmanager" "wheel" "docker" "vboxusers"];
      };
    };
 
