@@ -30,12 +30,8 @@
       # Stylix
       ./stylix.nix
 
-      # Virtualizatuion
-      ./virtualization/default.nix
-      # VirtualBox
+     # VirtualBox
       ./virtualization/virtualbox.nix
-      # QEMU
-      ./virtualization/qemu.nix
 
     ];
 

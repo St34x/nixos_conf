@@ -41,6 +41,7 @@
     qemu_full
     libvirt
     virtiofsd
+    quickemu
 
     # Development
     conda
