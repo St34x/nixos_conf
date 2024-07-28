@@ -33,8 +33,8 @@
 
     # Gnome tools
     gnomeExtensions.zen
-    gnome.gnome-tweaks
-    gnome.dconf-editor
+    gnome-tweaks
+    dconf-editor
 
     # Virtualiwation
     virt-manager
