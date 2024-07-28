@@ -28,7 +28,7 @@
       ./docker.nix
 
       # Stylix
-      ./stylix.nix
+      # ./stylix.nix
 
      # VirtualBox
       ./virtualization/virtualbox.nix

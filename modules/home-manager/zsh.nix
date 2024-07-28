@@ -10,6 +10,9 @@
     # dotDir			= "/home/st34x";
     enableCompletion 		= true;
     syntaxHighlighting.enable 	= true;
+    autosuggestion.enable = true;
+    syntaxHighlighting.enable = true;
+
     oh-my-zsh = {
        enable 			= true;
        plugins		 	= [ "git" ];

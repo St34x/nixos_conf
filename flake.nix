@@ -46,7 +46,7 @@
       hostName = "h0s7";
       timezone = "Europe/Paris";
       locale = "en_US.UTF-8";
-      systemVersion = "23.11";
+      systemVersion = "24.05";
       kernelParams = [
 	"quiet"
 	"splash"
