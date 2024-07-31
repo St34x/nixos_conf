@@ -43,6 +43,10 @@
     virtiofsd
     quickemu
     quickgui
+    spice-vdagent
+    spice
+    spice-gtk
+
 
     # Development
     conda
