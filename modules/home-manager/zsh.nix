@@ -10,8 +10,6 @@
     # dotDir			= "/home/st34x";
     enableCompletion 		= true;
     syntaxHighlighting.enable 	= true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
 
     oh-my-zsh = {
        enable 			= true;
@@ -29,12 +27,14 @@
       hm 	 		= "home-manager switch --flake ~/.nixos#st34x@h0s7";
       conf   			= "cd ~/.nixos && nvim ~/.nixos/modules/home-manager/default.nix";
       pkgs    			= "nvim ~/.nixos/nixos/packages.nix";
+      alias  			= "nvim ~/.nixos/modules/home-manager/zsh.nix";	
       v       			= "nvim";
       ".."    			= "cd ..";
       "~"     			= "cd ~";
       "off"   			= "shutdown now";
       mkdir   			= "mkdir -p"; 
       docker-clean		= "docker rm $(docker ps -aq) && docker rmi $(docker images -q)";
+      win11 			= "quickemu --vm /home/st34x/Documents/VMs/quickemu/windows-11.conf";
     };
   };
 }
