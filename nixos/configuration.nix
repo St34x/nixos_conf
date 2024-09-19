@@ -141,6 +141,11 @@
     enable 					= true;
     qemu.ovmf.enable 				= true;
   };
+
+  nix.nixPath = [
+  "nixos-config=/home/st34x/.nixos/nixos/configuration.nix"
+  ];
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
