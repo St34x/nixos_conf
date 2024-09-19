@@ -34,7 +34,7 @@
       ./virtualization/virtualbox.nix
 
      # Qemu
-    ./virtualization/qemu.nix
+    # ./virtualization/qemu.nix
 
     ];
 
@@ -114,6 +114,8 @@
     # no need to redefine it in your config for now)
     #media-session.enable = true;
   };
+
+  # Enable copy-paste between host and guest.
   services.spice-vdagentd.enable 		= true;
 
   # Enable touchpad support (enabled default in most desktopManager).
@@ -127,7 +129,7 @@
       users.${userConfig.userName} = {
         isNormalUser 				= true;
         description 				= userConfig.userName;
-        extraGroups 				= [ "networkmanager" "wheel" "docker" "vboxusers"];
+        extraGroups 				= [ "networkmanager" "wheel" "docker" "vboxusers" "libvirtd"];
      };
    };
 
