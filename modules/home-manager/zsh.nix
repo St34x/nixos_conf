@@ -34,6 +34,8 @@
       mkdir   			= "mkdir -p"; 
       docker-clean		= "docker rm $(docker ps -aq) && docker rmi $(docker images -q)";
       win11 			= "quickemu --vm /home/st34x/Documents/VMs/quickemu/windows-11.conf";
+      kali 			= "quickemu --vm /home/st34x/Documents/VMs/quickemu/kali-current.conf";
+      aleeas 			= "cat ~/.nixos/modules/home-manager/zsh.nix";
     };
   };
 }
