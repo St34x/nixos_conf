@@ -42,7 +42,6 @@
     libvirt
     virtiofsd
     quickemu
-    quickgui
     spice-vdagent
     spice
     spice-gtk
