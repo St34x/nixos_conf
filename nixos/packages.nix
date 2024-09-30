@@ -33,8 +33,8 @@
 
     # Gnome tools
     gnomeExtensions.zen
-    gnome-tweaks
-    dconf-editor
+    gnome.gnome-tweaks
+    gnome.dconf-editor
 
     # Virtualiwation
     virt-manager
@@ -64,12 +64,11 @@
   ];
 
   environment.gnome.excludePackages = (with pkgs; [
-    # for packages that are pkgs.***
-    gnome-tour
-    gnome-connections
-    epiphany # web browser
-    geary # email reader
-    evince # document viewer
-  ]);
-  
+      gnome-tour
+      gnome-connections
+  ]) ++ (with pkgs.gnome; [
+      epiphany # web browser
+      geary # email reader
+      evince # document viewer
+  ]);  
 }

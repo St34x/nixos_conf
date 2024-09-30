@@ -33,21 +33,28 @@
 	  copilot-vim.enable 	= true;
 	  which-key = {
 	    enable 		= true;
-	    icons = {
-	      breadcrumb 	= "»";
-	      separator 	= "➜";
-	      group 		= "+";
-	    };
-	    layout = {
-	      height 		= { min = 4; max = 150; };
-	      width 		= { min = 20; max = 950; };
-	      spacing 		= 3;
-	      align 		= "left";
+	    settings = {
+	      icons = {
+		breadcrumb 	= "»";
+		separator 	= "➜";
+		group 		= "+";
+	      };
+	      layout = {
+		height 		= { min = 4; max = 150; };
+		width 		= { min = 20; max = 950; };
+		spacing 		= 3;
+		align 		= "left";
+	      };
 	    };
 	  };
 	};
 
 	extraConfigLua 		= ''
+	  
+	  local function join_paths(...)
+	    return table.concat({...}, '/')
+	  end
+	  
 	  -- Set leader key as a space
 	  vim.g.mapleader = " "
 
