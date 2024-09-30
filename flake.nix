@@ -20,7 +20,11 @@
     nix-colors.url = "github:misterio77/nix-colors";
 
     # Nixvim
-    nixvim.url = "github:nix-community/nixvim";
+    nixvim = {
+        url = "github:nix-community/nixvim";
+        # If using a stable channel you can use `url = "github:nix-community/nixvim/nixos-<version>"`
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     # Stylix
     stylix.url = "github:danth/stylix";

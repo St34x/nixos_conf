@@ -47,6 +47,7 @@
 	      };
 	    };
 	  };
+	  web-devicons.enable 	= true;
 	};
 
 	extraConfigLua 		= ''
