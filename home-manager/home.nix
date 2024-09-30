@@ -5,6 +5,7 @@
   config,
   pkgs,
   userConfig,
+  systemConfig,
   ...
 }: {
   # You can import other home-manager modules here
@@ -94,5 +95,5 @@
 
 
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion 				= "24.05";
+  home.stateVersion 				= systemConfig.systemVersion;
 }

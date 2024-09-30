@@ -50,14 +50,6 @@
 	};
 
 	extraConfigLua 		= ''
-	  
-	  local function join_paths(...)
-	    return table.concat({...}, '/')
-	  end
-	  
-	  -- Set leader key as a space
-	  vim.g.mapleader = " "
-
 	  local status, wk = pcall(require, "which-key")
 
 	  if not (status) then

@@ -90,11 +90,11 @@
       # Configure keymap in X11
       xkb = {
 	layout 					= "us";
-	variant 					= "";
+	variant 				= "";
       };
     };
     # Enable CUPS to print documents.
-    printing.enable 			= true;
+    printing.enable 				= true;
   };
 
 
@@ -143,7 +143,7 @@
   };
 
   nix.nixPath = [
-  "nixos-config=/home/st34x/.nixos/nixos/configuration.nix"
+  "NIX_PATH=$NIX_PATH:nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz"
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
