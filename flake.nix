@@ -22,10 +22,6 @@
     # Nixvim
     nixvim.url = "github:nix-community/nixvim";
 
-    # Nix-locate
-    nix-index-database.url = "github:nix-community/nix-index-database";
-    nix-index-database.inputs.nixpkgs.follows = "nixpkgs";    
-    
     # Stylix
     stylix.url = "github:danth/stylix";
   };
@@ -33,9 +29,8 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
+    # ixpkgs-unstable,
     home-manager,
-    nix-index-database,
     stylix,
     ...
   } @ inputs: let
@@ -117,10 +112,8 @@
         modules = [
           # > Main home-manager configuration file <
           ./home-manager/home.nix
-
-	  nix-index-database.hmModules.nix-index
         ];
-      };
+     };
     };
   };
 }
