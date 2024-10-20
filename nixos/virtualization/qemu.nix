@@ -15,5 +15,6 @@
     };
     spiceUSBRedirection.enable = true;
   };
+  networking.bridges.virbr0.interfaces = [ ];
 }
 

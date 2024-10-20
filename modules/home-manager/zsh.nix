@@ -37,6 +37,7 @@
       kali 			= "quickemu --vm /home/st34x/Documents/VMs/quickemu/kali-current.conf";
       aleeas 			= "cat ~/.nixos/modules/home-manager/zsh.nix";
       path 			= "export NIX_PATH=$NIX_PATH:nixpkgs=https://github.com/NixOS/nixpkgs/archive/nixos-24.05.tar.gz";
+      vm			= "cd ~/Documents/VMs/quickemu/ && v .";
    };
   };
 }

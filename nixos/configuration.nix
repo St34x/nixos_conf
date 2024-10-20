@@ -129,7 +129,7 @@
       users.${userConfig.userName} = {
         isNormalUser 				= true;
         description 				= userConfig.userName;
-        extraGroups 				= [ "networkmanager" "wheel" "docker" "vboxusers" "libvirtd"];
+        extraGroups 				= [ "networkmanager" "wheel" "docker" "vboxusers" "libvirtd" "kvm" "qemu-libvirtd" ];
      };
    };
 

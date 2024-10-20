@@ -15,6 +15,7 @@
     discord
     libreoffice-still
     obsidian
+    slack
     
     # CLI
     wget
